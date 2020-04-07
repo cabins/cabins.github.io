@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://cabins.github.io/"
 languageCode = "en-us"
 title = "第253页图灵笔记"
 theme = "hyde"
