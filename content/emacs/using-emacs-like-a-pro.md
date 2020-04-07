@@ -1,6 +1,8 @@
 ---
 title: 'Emacs高手修炼手册'
 date: 2020-04-07T13:34:30+08:00
+tags: ['Emacs']
+categories: ['Emacs']
 draft: true
 ---
 
@@ -96,11 +98,11 @@ brew cask info emacs
 
 ![clipboard.png](/imgs/emacs-window-basic.webp)
 
-绿色：菜单栏
-红色：工具栏
-黄色：编辑区域
-蓝色：状态栏
-紫色：交互区域（输出信息，M-x 操作等）
+- 绿色：菜单栏
+- 红色：工具栏
+- 黄色：编辑区域
+- 蓝色：状态栏
+- 紫色：交互区域（输出信息，`M-x` 操作等）
 
 ## 5 基本操作速记
 
@@ -143,17 +145,13 @@ C-h f ;速记 Help Function
 
 ## 7 对外观做点改变
 
-图形化配置
-`M-x customize`
+图形化配置`M-x customize`
 
-- 菜单栏
-  `menu-bar-mode`
+- 菜单栏 `menu-bar-mode`
 
-- 工具栏
-  `tool-bar-mode`
+- 工具栏 `tool-bar-mode`
 
-- 滚动条
-  `scroll-bar-mode`
+- 滚动条 `scroll-bar-mode`
 
 > 优势：不用写 ELisp 代码
 

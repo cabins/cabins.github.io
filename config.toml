@@ -1,5 +1,5 @@
 baseURL = "https://cabins.github.io/"
-languageCode = "en-us"
+languageCode = "zh-CN"
 title = "第253页图灵笔记"
 theme = "hyde"
 summaryLength = 30
@@ -7,16 +7,27 @@ summaryLength = 30
 [params]
   description = "测试开发工程师的日常/Emacs高手修炼手册"
 
+[taxonomies]
+  tag = "tags"
+  series = "series"
+  category = "categories"
+
 [menu]
   [[menu.main]]
-    identifier = "posts"
-    name = "文章列表"
+    identifier = "emacs"
+    name = "Emacs高手修炼手册"
     pre = "<i class='fa fa-heart'></i>"
-    url = "/posts/"
+    url = "/emacs/"
     weight = 2
+  [[menu.main]]
+    identifier = "testdev"
+    name = "测试开发工程师的日常"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/testdev/"
+    weight = 3
   [[menu.main]]
     identifier = "about"
     name = "关于我"
     pre = "<i class='fa fa-heart'></i>"
-    url = "/about/"
+    url = "/about/about-me/"
     weight = 10
