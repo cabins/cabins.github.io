@@ -2,7 +2,9 @@ baseURL = "https://cabins.github.io/"
 languageCode = "zh-CN"
 title = "第253页图灵笔记"
 theme = "hyde"
-summaryLength = 30
+hasCJKLanguage = true
+summaryLength = 18
+
 
 [params]
   description = "测试开发工程师的日常/Emacs高手修炼手册"
