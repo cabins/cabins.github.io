@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Emacs高手修炼手册 &middot; 第253页图灵笔记</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="http://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://example.org/"><p class="lead">@第253页图灵笔记</p></a>
+      <p>
+       测试开发工程师的日常/Emacs高手修炼手册 
+      </p>
+    </div>
+
+    <hr>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://example.org/">首页</a> </li>
+        
+      </ul>
+    </nav>
+
+    <hr>
+    <p>&copy; 2020，版权保留。 </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Emacs高手修炼手册</h1>
+  <time datetime=2020-04-07T13:34:30&#43;0800 class="post-date">Tue, Apr 7, 2020</time>
+  <p><a href="https://space.bilibili.com/210738994">视频讲解版本</a></p>
+<h1 id="emacs-初体验">Emacs 初体验</h1>
+<h2 id="0-教程简介">0 教程简介</h2>
+<ul>
+<li>带领认识 Emacs 这款传说中的编辑器</li>
+<li>每节课五分钟左右，没有废话，干货</li>
+<li>每节课一个技巧或知识点，轻松学习</li>
+<li>对笔者也是个学习的过程，共同进步</li>
+<li>新手视角，向老鸟学习，向高手迈进</li>
+</ul>
+<h2 id="1-emacs-简介">1 Emacs 简介</h2>
+<ul>
+<li>讲解的版本是 GNU Emacs</li>
+<li>GNU Emacs 于 1984 年，Richard Stallman 发起并维护</li>
+<li>GNU 顶级项目</li>
+<li>竞争对手 VIM，VSCode 等</li>
+<li>跨平台，内核解释器 C 写成，通过 ELisp 语言进行扩展</li>
+</ul>
+<h2 id="2-emacs-安装">2 Emacs 安装</h2>
+<h3 id="21-windows">2.1 Windows</h3>
+<p>建议使用 Scoop 或 Chocolatey 等包管理器安装。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">scoop bucket add extras scoop install emacs
+choco install emacs
+</code></pre></div><p>或者也可以直接在 Emacs 官网进行下载解压使用。</p>
+<p><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a></p>
+<h3 id="22-linux">2.2 Linux</h3>
+<p>建议使用分发版自带的包管理器进行安装，如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ubuntu</span>
+sudo apt install emacs
+<span style="color:#75715e"># Fedora</span>
+sudo dnf install emacs
+<span style="color:#75715e"># Arch</span>
+sudo pacman -S emacs
+</code></pre></div><p>或者也可以通过官网下载源代码编译安装。</p>
+<p><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a></p>
+<h3 id="23-macos">2.3 macOS</h3>
+<p>建议使用 Homebrew 包管理器进行安装。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew cask install emacs
+</code></pre></div><p>或者也可以在官网通过下载后拖动到 Applications 目录中即可使用。</p>
+<p><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a></p>
+<h2 id="3-emacs-版本">3 Emacs 版本</h2>
+<ul>
+<li>最新版本（2020 年 3 月）：26.3</li>
+<li>即将发布版本：27</li>
+<li>开发中不稳定版本：28</li>
+</ul>
+<p>教程以 26.3 为演示版本，同时兼容 27 版本。安装前可查看包管理器安装的是否是对应版本。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Windows</span>
+scoop info emacs
+ <span style="color:#75715e"># Linux</span>
+apt info emacs
+dnf info emacs
+<span style="color:#75715e"># macOS</span>
+brew cask info emacs
+</code></pre></div><p>启动 Emacs，然后查看版本。
+<code>M-x emacs-version</code></p>
+<p>或者在命令行中查看版本。
+<code>emacs --version</code></p>
+<h2 id="4-emacs-初识">4 Emacs 初识</h2>
+<p><img src="/imgs/emacs-window-basic.webp" alt="clipboard.png"></p>
+<p>绿色：菜单栏
+红色：工具栏
+黄色：编辑区域
+蓝色：状态栏
+紫色：交互区域（输出信息，M-x 操作等）</p>
+<h2 id="5-基本操作速记">5 基本操作速记</h2>
+<p>别太多，先学习一点点光标的移动。</p>
+<ul>
+<li>C，代表 CTRL 键</li>
+<li>M，代表 Meta 键，往往是 ALT（部分键盘是 ESC）</li>
+</ul>
+<p>光标移动，形成肌肉记忆之前可通过速记法来记忆：</p>
+<ul>
+<li>C-n，下一行（速记：Nextline）</li>
+<li>C-p，前一行（速记：Previous line）</li>
+<li>C-f，向前移动一个字符（速记：Forward）</li>
+<li>C-b，向后退一个字符（速记：Backforward）</li>
+<li>C-k，从光标位置到末尾删掉（速记：Kill）</li>
+<li>C-a，回到行首（速记：a 是字母表的开始）</li>
+<li>C-e，去往行尾（速记：End of line）</li>
+<li>M-&lt;，回到编辑区域最开始位置（速记：&lt;）</li>
+<li>M-&gt;，去往编辑区域最后的位置（速记：&gt;）</li>
+<li>C-v，向下翻一屏</li>
+<li>M-v，向上翻一屏</li>
+</ul>
+<h2 id="6-自带文档">6 自带文档</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h <span style="color:#66d9ef">t</span> <span style="color:#75715e">;速记 Help Tutorial</span>
+</code></pre></div><p>查看快捷键的含义：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h k <span style="color:#75715e">;速记 Help Keybind</span>
+</code></pre></div><p>查看函数的定义以及快捷键绑定：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h f <span style="color:#75715e">;速记 Help Function</span>
+</code></pre></div><h2 id="7-对外观做点改变">7 对外观做点改变</h2>
+<p>图形化配置
+<code>M-x customize</code></p>
+<ul>
+<li>
+<p>菜单栏
+<code>menu-bar-mode</code></p>
+</li>
+<li>
+<p>工具栏
+<code>tool-bar-mode</code></p>
+</li>
+<li>
+<p>滚动条
+<code>scroll-bar-mode</code></p>
+</li>
+</ul>
+<blockquote>
+<p>优势：不用写 ELisp 代码</p>
+</blockquote>
+<blockquote>
+<p>劣势：</p>
+<ul>
+<li>搜索</li>
+<li>生成的配置代码只能是单一文件配置，显得凌乱</li>
+<li>扩展的配置不容易进行</li>
+<li>涉及到复杂逻辑的（如条件判断）不方便配置</li>
+</ul>
+</blockquote>
+<h2 id="8-体验下用配置文件配置">8 体验下用配置文件配置</h2>
+<p>创建文件 <code>~/.emacs</code> 并写入一下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(menu-bar-mode <span style="color:#ae81ff">-1</span>)
+(tool-bar-mode <span style="color:#ae81ff">-1</span>)
+(scroll-bar-mode <span style="color:#ae81ff">-1</span>)
+</code></pre></div><p>重启 Emacs 看看实际的效果。</p>
+<h1 id="emacs-配置初体验">Emacs 配置初体验</h1>
+<h2 id="9-认识配置文件">9 认识配置文件</h2>
+<p>Emacs 配置文件的位置，会按照一下顺序去查找：</p>
+<ul>
+<li><code>~/.emacs</code></li>
+<li><code>~/.emacs.d</code></li>
+<li><code>~/.config/emacs/init.el</code></li>
+</ul>
+<p>第一个是一个单一文件配置；第二个更符合工程化；第三个仅适用于 ≥27 的版本。教程会从第一个入手，逐渐变为第二种的模式。</p>
+<h2 id="10-为什么不用大牛配置">10 为什么不用大牛配置</h2>
+<ul>
+<li>大牛配置
+<ul>
+<li>Spacemacs</li>
+<li>Centaur Emacs</li>
+<li>Doom Emacs</li>
+<li>Steve Purcell</li>
+<li>redguardtoo（陈斌，一年成为 emacs 高手作者）</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>当然建议用大牛配置</p>
+<ul>
+<li>兼容性好</li>
+<li>代码质量高</li>
+<li>功能齐全</li>
+<li>开箱即用</li>
+</ul>
+</li>
+<li>
+<p>为什么不用</p>
+<ul>
+<li>体验配置 Emacs 的乐趣</li>
+<li>对 Emacs 工作多一些了解</li>
+<li>体验大牛成长的过程</li>
+<li>追求轻量，追求速度，追求新</li>
+</ul>
+</li>
+<li>
+<p>我的配置
+<code>https://github.com/cabins/.emacs.d</code></p>
+</li>
+</ul>
+<h2 id="11-第一行-emacs-配置代码">11 第一行 emacs 配置代码</h2>
+<p>已经体验了关掉菜单栏、工具栏、滚动条等。现在尝试关掉启动界面：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> inhibit-startup-screen <span style="color:#66d9ef">t</span>)
+</code></pre></div><p>重启 Emacs 看看？</p>
+<h2 id="12-软件源">12 软件源</h2>
+<ul>
+<li>什么是软件源</li>
+<li>为什么要用软件源</li>
+<li>为什么要改成国内的软件源</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> package-archives <span style="color:#f92672">&#39;</span>(
+    (<span style="color:#e6db74">&#34;melpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/&#34;</span>)
+    (<span style="color:#e6db74">&#34;gnu&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/&#34;</span>)
+    (<span style="color:#e6db74">&#34;org&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://mirrors.tuna.tsinghua.edu.cn/elpa/org/&#34;</span>)))
+</code></pre></div><h2 id="13-安装第一个-emacs-扩展">13 安装第一个 emacs 扩展</h2>
+<p>安装扩展前，需要先刷新软件源的索引。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> package-check-signature <span style="color:#66d9ef">nil</span>) <span style="color:#75715e">;个别时候会出现签名校验失败</span>
+(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;package</span>) <span style="color:#75715e">;; 初始化包管理器</span>
+(unless (bound-and-true-p package--initialized)
+   (package-initialize)) <span style="color:#75715e">;; 刷新软件源索引</span>
+(unless package-archive-contents
+    (package-refresh-contents))
+
+unless (package-installed-p <span style="color:#e6db74">&#39;use-package</span>)
+   (package-refresh-contents)
+   (package-install <span style="color:#e6db74">&#39;use-package</span>))
+</code></pre></div><h2 id="14-使用-use-package-管理扩展">14 使用 use-package 管理扩展</h2>
+<ul>
+<li>
+<p>什么是 use-package</p>
+<ul>
+<li>简单理解，是一个宏</li>
+<li>用更简单统一的方式去管理插件</li>
+</ul>
+</li>
+<li>
+<p>怎么用</p>
+<ul>
+<li>基本格式，并举个例子</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 最简洁的格式</span>
+ (<span style="color:#a6e22e">use-package</span> restart-emacs)
+
+<span style="color:#75715e">;; 常用的格式</span>
+ (<span style="color:#a6e22e">use-package</span> smooth-scrolling
+    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span> <span style="color:#75715e">;是否一定要确保已安装</span>
+    <span style="color:#e6db74">:defer</span> <span style="color:#66d9ef">nil</span> <span style="color:#75715e">;是否要延迟加载</span>
+    <span style="color:#e6db74">:init</span> (<span style="color:#66d9ef">setq</span> smooth-scrolling-margin <span style="color:#ae81ff">2</span>) <span style="color:#75715e">;初始化参数</span>
+    <span style="color:#e6db74">:config</span> (smooth-scrolling-mode <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;基本配置参数</span>
+    <span style="color:#e6db74">:bind</span> <span style="color:#75715e">;快捷键的绑定</span>
+    <span style="color:#e6db74">:hook</span>) <span style="color:#75715e">;hook模式的绑定</span>
+</code></pre></div><p>建议添加的配置（部分来自 use-package 官方建议）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(eval-and-compile
+    (<span style="color:#66d9ef">setq</span> use-package-always-ensure <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;不用每个包都手动添加:ensure t关键字</span>
+    (<span style="color:#66d9ef">setq</span> use-package-always-defer <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;默认都是延迟加载，不用每个包都手动添加:defer t</span>
+    (<span style="color:#66d9ef">setq</span> use-package-always-demand <span style="color:#66d9ef">nil</span>)
+    (<span style="color:#66d9ef">setq</span> use-package-expand-minimally <span style="color:#66d9ef">t</span>)
+    (<span style="color:#66d9ef">setq</span> use-package-verbose <span style="color:#66d9ef">t</span>))
+</code></pre></div><h2 id="15-更换个主题">15 更换个主题</h2>
+<p>教程演示采用的主题是 <code>gruvbox-theme</code>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> gruvbox-theme
+    <span style="color:#e6db74">:init</span> (load-theme <span style="color:#e6db74">&#39;gruvbox-dark-soft</span> <span style="color:#66d9ef">t</span>))
+</code></pre></div><p>顺便配置一个好看一点的 Mode Line。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> smart-mode-line
+    <span style="color:#e6db74">:init</span>
+    (<span style="color:#66d9ef">setq</span> sml/no-confirm-load-theme <span style="color:#66d9ef">t</span>)
+    (<span style="color:#66d9ef">setq</span> sml/theme <span style="color:#e6db74">&#39;respectful</span>)
+    (sml/setup))
+</code></pre></div><h2 id="16-工程化管理配置1功能拆分">16 工程化管理配置（1）功能拆分</h2>
+<p>到此为止，在<code>~/.emacs</code> 中配置了很多的内容，开始显得很乱：</p>
+<ul>
+<li>初始化 Elpa</li>
+<li>安装扩展</li>
+<li>添加主题</li>
+</ul>
+<p>是时候分类处理了。就像一个开发项目那样。尝试着把配置按照功能不同拆分成不同的文件。如：</p>
+<ul>
+<li><code>lisp/init-elpa.el</code>用于存放 Elpa 和 Package 初始化</li>
+<li><code>lisp/init-package.el</code>用于存放安装的扩展</li>
+<li><code>lisp/init-ui.el</code>用于存放界面主题相关配置</li>
+</ul>
+<p>如何在初始化文件中把它们联系在一起（调用）？</p>
+<h2 id="17-工程化管理配置2文件加载与调用">17 工程化管理配置（2）文件加载与调用</h2>
+<p>先设置加载的目标目录到 <code>load-path</code> 中。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;load-path</span>
+    (expand-file-name (concat user-emacs-directory <span style="color:#e6db74">&#34;lisp&#34;</span>)))
+</code></pre></div><p>各个文件通过 provide 暴露对外调用的名称。如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">provide</span> <span style="color:#e6db74">&#39;init-ui</span>)
+</code></pre></div><p>然后在 init.el 文件中通过 <code>require</code> 调用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;init-ui</span>
+</code></pre></div><h2 id="18-关于自定义的配置">18 关于自定义的配置</h2>
+<p>建议写入一个单独的文件，对外开源的时候，该文件不被提交到 Git 中。如，<code>custom.el</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> custom-file
+    (expand-file-name <span style="color:#e6db74">&#34;custom.el&#34;</span> user-emacs-directory))
+</code></pre></div><p>这样就会把通过图形界面做的一些配置，写入到这里了。</p>
+<h2 id="19-操作系统判断">19 操作系统判断</h2>
+<p>后面的部分配置会因操作系统不同而产生不同配置代码，所以有必要对操作系统进行判断。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(defconst *is-mac* (<span style="color:#a6e22e">eq</span> system-type <span style="color:#e6db74">&#39;darwin</span>))
+(defconst *is-linux* (<span style="color:#a6e22e">eq</span> system-type <span style="color:#e6db74">&#39;gnu/linux</span>))
+(defconst *is-windows* (or (<span style="color:#a6e22e">eq</span> system-type <span style="color:#e6db74">&#39;ms-dos</span>) (<span style="color:#a6e22e">eq</span> system-type <span style="color:#e6db74">&#39;windows-nt</span>)))
+</code></pre></div><h2 id="20-macos-平台将-command-键映射为-meta">20 macOS 平台将 Command 键映射为 Meta</h2>
+<p>对于 Mac 键盘来说，Command 键距离 x 的位置与 Windows 键盘更相近，所以习惯上可以修改这个按键映射为 Meta，如果你不需要这个设置，可以不用管。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(when *is-mac*
+    (<span style="color:#66d9ef">setq</span> mac-command-modifier <span style="color:#e6db74">&#39;meta</span>)
+    (<span style="color:#66d9ef">setq</span> mac-option-modifier <span style="color:#e6db74">&#39;none</span>))
+</code></pre></div><h2 id="21-通过修改字体解决-windows-上-emacs-的卡顿">21 通过修改字体解决 Windows 上 Emacs 的卡顿</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> emacs
+  <span style="color:#e6db74">:if</span> (display-graphic-p)
+  <span style="color:#e6db74">:config</span>
+  <span style="color:#75715e">;; Font settings</span>
+  (<span style="color:#66d9ef">if</span> *is-windows*
+    (<span style="color:#66d9ef">progn</span>
+      (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">:font</span> <span style="color:#e6db74">&#34;Microsoft Yahei Mono 9&#34;</span>)
+      (dolist (charset <span style="color:#f92672">&#39;</span>(kana han <span style="color:#a6e22e">symbol</span> cjk-misc bopomofo))
+        (set-fontset-font (frame-parameter <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;font</span>) charset (font-spec <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Microsoft Yahei Mono&#34;</span> <span style="color:#e6db74">:size</span> <span style="color:#ae81ff">12</span>))))
+  (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">:font</span> <span style="color:#e6db74">&#34;Source Code Pro for Powerline 11&#34;</span>)))
+</code></pre></div><h2 id="22-建议增加的一点启动配置">22 建议增加的一点启动配置</h2>
+<p>设置系统的编码，避免各处的乱码。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(prefer-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
+(set-default-coding-systems <span style="color:#e6db74">&#39;utf-8</span>)
+(set-terminal-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
+(set-keyboard-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
+(<span style="color:#66d9ef">setq</span> default-buffer-file-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
+</code></pre></div><p>设置垃圾回收阈值，加速启动速度。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> gc-cons-threshold most-positive-fixnum)
+</code></pre></div><h2 id="23-测试启动耗时">23 测试启动耗时</h2>
+<p>通过 <code>benchmark-init</code> 包进行启动耗时的测量。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> benchmark-init
+  <span style="color:#e6db74">:init</span> (benchmark-init/activate)
+  <span style="color:#e6db74">:hook</span> (after-init <span style="color:#f92672">.</span> benchmark-init/deactivate))
+</code></pre></div><p><code>M-x benchmark-init/show-durations-tree</code> 或者 <code>M-x benchmark-init/show-durations-tabulated</code></p>
+<h2 id="24-中断命令输入">24 中断命令输入</h2>
+<p><code>C-g</code>在输入任何命令的时候，可随时通过该快捷键放弃命令的继续键入。</p>
+<h2 id="25-用-yn-来代替-yesno">25 用 y/n 来代替 yes/no</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(defalias <span style="color:#e6db74">&#39;yes-or-no-p</span> <span style="color:#e6db74">&#39;y-or-n-p</span>)
+</code></pre></div><p>为了项目管理的统一化，可以用如下的<code>use-package</code>写法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> emacs <span style="color:#e6db74">:config</span> (defalias <span style="color:#e6db74">&#39;yes-or-no-p</span> <span style="color:#e6db74">&#39;y-or-n-p</span>))
+</code></pre></div><h2 id="26-显示行号">26 显示行号</h2>
+<h3 id="261-行号的类型">26.1 行号的类型</h3>
+<p>从 Emacs 26 开始，自带了行号显示功能，可以通过设置<code>display-line-numbers-type</code>变量的值，来改变行号的类型。可取值有：</p>
+<ul>
+<li>relative，相对行号</li>
+<li>visual，可视化行号</li>
+<li>t</li>
+</ul>
+<h3 id="262-行号配置">26.2 行号配置</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> emacs
+    <span style="color:#e6db74">:config</span>
+    (<span style="color:#66d9ef">setq</span> display-line-numbers-type <span style="color:#e6db74">&#39;relative</span>)
+    (global-display-line-numbers-mode <span style="color:#66d9ef">t</span>))
+</code></pre></div><blockquote>
+<p>注：
+有些时候我发现在 Windows 上开启了行号会让屏幕滚动的时候闪烁，此时，我们可以让其在 Windows 上不开启行号。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> emacs
+    <span style="color:#e6db74">:unless</span> *is-windows*
+    <span style="color:#e6db74">:config</span>
+    (<span style="color:#66d9ef">setq</span> display-line-numbers-type <span style="color:#e6db74">&#39;relative</span>)
+    (global-display-line-numbers-mode <span style="color:#66d9ef">t</span>))
+</code></pre></div><h1 id="emacs-文本编辑">Emacs 文本编辑</h1>
+<h2 id="27-文本编辑之选中复制剪切粘贴">27 文本编辑之选中/复制/剪切/粘贴</h2>
+<p><strong>选中</strong></p>
+<ul>
+<li>方法一，使用鼠标拖动选中</li>
+<li>方法二，标记开始位置，然后通过移动光标到结束位置
+<ul>
+<li>默认使用 C-SPC 或 C-@进行开始位置的标记</li>
+<li>对于很多场景下，C-SPC 快捷键被占用（输入法，Spotlight 等）</li>
+</ul>
+</li>
+</ul>
+<p><strong>复制</strong>
+<code>M-w</code></p>
+<p><strong>剪切</strong>
+<code>C-w</code></p>
+<p><strong>粘贴</strong>
+<code>C-y ;; 速记 Yank</code></p>
+<h2 id="28-文本编辑之删除">28 文本编辑之删除</h2>
+<p><strong>场景一：从光标位置到行尾的删除</strong>
+<code>C-k</code></p>
+<p><strong>场景二：删除当前行</strong></p>
+<p>默认没有这样的快捷键，可以安装一个扩展来实现，<code>crux</code>，该扩展提供了包含该场景在内的一系列优化快捷命令。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> crux
+    <span style="color:#e6db74">:bind</span> (<span style="color:#e6db74">&#34;C-c k&#34;</span> <span style="color:#f92672">.</span> crux-smart-kill-line))
+</code></pre></div><p>后面补充一节课来介绍这个扩展。</p>
+<p><strong>场景三：一次性删除到前/后面的第一个非空字符（删除连续的空白）</strong></p>
+<p>通过<code>hungry-delete</code>扩展实现，该功能。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> hungry-delete
+    <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;C-c DEL&#34;</span> <span style="color:#f92672">.</span> hungry-delete-backward)
+           (<span style="color:#e6db74">&#34;C-c d&#34;</span> <span style="color:#f92672">.</span> hungry-delete-forward)))
+</code></pre></div><h2 id="29-文本编辑之行区域上下移动">29 文本编辑之行/区域上下移动</h2>
+<p>在 VSCode 或 Jetbrains 家族的编辑器中，上下移动行/块是非常容易的，但原生的 Emacs 没有提供这样的功能。可通过插件<code>drag-stuff</code>来辅助实现。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> drag-stuff
+  <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;&lt;M-up&gt;&#34;</span><span style="color:#f92672">.</span> drag-stuff-up)
+         (<span style="color:#e6db74">&#34;&lt;M-down&gt;&#34;</span> <span style="color:#f92672">.</span> drag-stuff-down)))
+</code></pre></div><h2 id="30-文本编辑之原生搜索替换">30 文本编辑之原生搜索/替换</h2>
+<p>Emacs 原生提供了强大的搜索和替换功能。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 当前位置到文档结尾的搜索</span>
+C-s
+<span style="color:#75715e">;; 当前位置到文档开始的搜索</span>
+C-r
+<span style="color:#75715e">;; 替换</span>
+M-%
+</code></pre></div><p>替换时按下<code>y</code>确认替换，<code>n</code>跳过本处的替换，<code>!</code>全部替换。</p>
+<h2 id="31-文本编辑之强化搜索">31 文本编辑之强化搜索</h2>
+<p>著名的<code>ivy-counsel-swiper</code>三剑客，就是为了强化搜索（同时优化了一系列 Minibuffer 的操作）。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ivy
+  <span style="color:#e6db74">:defer</span> <span style="color:#ae81ff">1</span>
+  <span style="color:#e6db74">:demand</span>
+  <span style="color:#e6db74">:hook</span> (after-init <span style="color:#f92672">.</span> ivy-mode)
+  <span style="color:#e6db74">:config</span>
+  (ivy-mode <span style="color:#ae81ff">1</span>)
+  (<span style="color:#66d9ef">setq</span> ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>
+        ivy-initial-inputs-alist <span style="color:#66d9ef">nil</span>
+        ivy-count-format <span style="color:#e6db74">&#34;%d/%d &#34;</span>
+        enable-recursive-minibuffers <span style="color:#66d9ef">t</span>
+        ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy--regex-ignore-order)))
+  (ivy-posframe-mode <span style="color:#ae81ff">1</span>)))
+
+(<span style="color:#a6e22e">use-package</span> counsel
+  <span style="color:#e6db74">:after</span> (ivy)
+  <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;M-x&#34;</span> <span style="color:#f92672">.</span> counsel-M-x)
+         (<span style="color:#e6db74">&#34;C-x C-f&#34;</span> <span style="color:#f92672">.</span> counsel-find-file)
+         (<span style="color:#e6db74">&#34;C-c f&#34;</span> <span style="color:#f92672">.</span> counsel-recentf)
+         (<span style="color:#e6db74">&#34;C-c g&#34;</span> <span style="color:#f92672">.</span> counsel-git)))
+
+(<span style="color:#a6e22e">use-package</span> swiper
+  <span style="color:#e6db74">:after</span> ivy
+  <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;C-s&#34;</span> <span style="color:#f92672">.</span> swiper)
+         (<span style="color:#e6db74">&#34;C-r&#34;</span> <span style="color:#f92672">.</span> swiper-isearch-backward))
+  <span style="color:#e6db74">:config</span> (<span style="color:#66d9ef">setq</span> swiper-action-recenter <span style="color:#66d9ef">t</span>
+                swiper-include-line-number-in-search <span style="color:#66d9ef">t</span>))
+</code></pre></div><h2 id="32-文本编辑之自动补全">32 文本编辑之自动补全</h2>
+<p>Emacs 界补全两大垄断插件，<code>Auto-Complete</code>和<code>Company</code>（Complete Anything）。时代和特性原因，<code>Company</code>呈现压倒性优势。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> company
+  <span style="color:#e6db74">:config</span>
+  (<span style="color:#66d9ef">setq</span> company-dabbrev-code-everywhere <span style="color:#66d9ef">t</span>
+        company-dabbrev-code-modes <span style="color:#66d9ef">t</span>
+        company-dabbrev-code-other-buffers <span style="color:#e6db74">&#39;all</span>
+        company-dabbrev-downcase <span style="color:#66d9ef">nil</span>
+        company-dabbrev-ignore-case <span style="color:#66d9ef">t</span>
+        company-dabbrev-other-buffers <span style="color:#e6db74">&#39;all</span>
+        company-require-match <span style="color:#66d9ef">nil</span>
+        company-minimum-prefix-length <span style="color:#ae81ff">2</span>
+        company-show-numbers <span style="color:#66d9ef">t</span>
+        company-tooltip-limit <span style="color:#ae81ff">20</span>
+        company-idle-delay <span style="color:#ae81ff">0</span>
+        company-echo-delay <span style="color:#ae81ff">0</span>
+        company-tooltip-offset-display <span style="color:#e6db74">&#39;scrollbar</span>
+        company-begin-commands <span style="color:#f92672">&#39;</span>(self-insert-command))
+  (push <span style="color:#f92672">&#39;</span>(company-semantic <span style="color:#e6db74">:with</span> company-yasnippet) company-backends)
+  <span style="color:#e6db74">:hook</span> ((after-init <span style="color:#f92672">.</span> global-company-mode)))
+</code></pre></div><p>但，注意下认识到<code>Company</code>的不足：<code>文档</code>。其文档都是写在源码中的。</p>
+<h2 id="33-文本编辑之语法检查">33 文本编辑之语法检查</h2>
+<p>默认 Emacs 自带了<code>Flymake</code>，但<code>Flycheck</code>是一个更优的方案。</p>
+<p>建议全局启用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> flycheck
+  <span style="color:#e6db74">:hook</span> (after-init <span style="color:#f92672">.</span> global-flycheck-mode))
+</code></pre></div><p>如果你只想在编程语言的模式下启用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> flycheck
+  <span style="color:#e6db74">:hook</span> (prog-mode <span style="color:#f92672">.</span> flycheck-mode))
+</code></pre></div><h2 id="34-文本编辑之行排序">34 文本编辑之行排序</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">M-x sort-lines
+</code></pre></div><h2 id="35-文本编辑之顺序更换">35 文本编辑之顺序更换</h2>
+<p>光标前后两个字符互换
+<code>C-t</code></p>
+<p>光标前后两个单词互换
+<code>M-t</code></p>
+<h2 id="36-文本编辑之字数统计">36 文本编辑之字数统计</h2>
+<p>整个 Buffer 统计</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">M-=
+<span style="color:#75715e">;; 或者</span>
+M-x count-words-region
+</code></pre></div><p>选中区域统计</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 先选中</span>
+M-x count-words
+</code></pre></div><h1 id="emacs-常用插件">Emacs 常用插件</h1>
+<h2 id="37-crux-优化-emacs-常用操作">37 crux 优化 Emacs 常用操作</h2>
+<ul>
+<li>优化版的回到行首</li>
+<li>快速打开 Emacs 配置文件</li>
+<li>快速连接两行等</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> crux
+  <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;C-a&#34;</span> <span style="color:#f92672">.</span> crux-move-beginning-of-line)
+         (<span style="color:#e6db74">&#34;C-c ^&#34;</span> <span style="color:#f92672">.</span> crux-top-join-line)
+         (<span style="color:#e6db74">&#34;C-x ,&#34;</span> <span style="color:#f92672">.</span> crux-find-user-init-file)
+         (<span style="color:#e6db74">&#34;C-c k&#34;</span> <span style="color:#f92672">.</span> crux-smart-kill-line)))
+</code></pre></div><h2 id="38-如何记忆越来越长的快捷键">38 如何记忆越来越长的快捷键</h2>
+<blockquote>
+<p>答案：不用记忆。</p>
+</blockquote>
+<p>如果你不喜欢用鼠标在菜单栏点击的化，你其实可以用 Which-Key 这款插件来辅助你“记忆”。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> which-key
+  <span style="color:#e6db74">:defer</span> <span style="color:#66d9ef">nil</span>
+  <span style="color:#e6db74">:config</span> (which-key-mode))
+</code></pre></div><p>当你按下一个按键时，它会提示你下一个按键的含义。并等待你去按下。</p>
+<h1 id="emacs-窗口管理">Emacs 窗口管理</h1>
+<h2 id="39-窗口管理之-buffer-管理">39 窗口管理之 Buffer 管理</h2>
+<p>Buffer 切换</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x b
+</code></pre></div><p>杀死当前 Buffer</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x k
+</code></pre></div><p>批量管理 Buffer</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x C-b <span style="color:#75715e">;; 进入Buffer列表</span>
+d <span style="color:#75715e">;; 标记删除</span>
+u <span style="color:#75715e">;; 取消当前行标记</span>
+U <span style="color:#75715e">;; 取消全部标记</span>
+x <span style="color:#75715e">;; 执行操作</span>
+? <span style="color:#75715e">;; 查看按键帮助</span>
+</code></pre></div><h2 id="40-窗口管理之-minibuffer-交互优化">40 窗口管理之 MiniBuffer 交互优化</h2>
+<p>显示在左下角的 MiniBuffer 移动视线范围大，移动到中央位置，更合适一些。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ivy-posframe
+  <span style="color:#e6db74">:init</span>
+  (<span style="color:#66d9ef">setq</span> ivy-posframe-display-functions-alist
+    <span style="color:#f92672">&#39;</span>((swiper <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)
+      (complete-symbol <span style="color:#f92672">.</span> ivy-posframe-display-at-point)
+      (counsel-M-x <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)
+      (counsel-find-file <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)
+      (ivy-switch-buffer <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)
+      (<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)))
+</code></pre></div><h2 id="41-窗口管理之分屏">41 窗口管理之分屏</h2>
+<p>开启横向分屏
+<code>C-x 3</code></p>
+<p>开启纵向分屏
+<code>C-x 2</code></p>
+<p>只保留当前分屏
+<code>C-x 1</code></p>
+<p>关闭当前分屏
+<code>C-x 0</code></p>
+<h2 id="42-窗口管理之分屏宽度调整">42 窗口管理之分屏宽度调整</h2>
+<p>增加高度
+<code>C-x ^</code></p>
+<p>增加/减少宽度
+<code>C-x {</code>
+<code>C-x }</code></p>
+<h2 id="43-窗口管理之快速切换分屏">43 窗口管理之快速切换分屏</h2>
+<p>默认可通过以下快捷键进行窗口的循环跳转：
+<code>C-x o</code></p>
+<p>当分屏很多的时候效率非常低。通过 ace-window 可快速进行窗口间的跳转。类似的插件较多，但该款为最佳方案。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ace-window
+    <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;M-o&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;ace-window</span>)))
+</code></pre></div><p><img src="/imgs/ace-window-extras.png" alt="image.png"></p>
+<h2 id="44-窗口管理之-tab-标签页管理">44 窗口管理之 Tab 标签页管理</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x <span style="color:#66d9ef">t</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">;; 新建Tab</span>
+      <span style="color:#ae81ff">1</span> <span style="color:#75715e">;; 关闭其它Tab</span>
+      <span style="color:#ae81ff">0</span> <span style="color:#75715e">;; 关闭当前Tab</span>
+      b <span style="color:#75715e">;; 在新Tab中打开Buffer</span>
+</code></pre></div><p>未完待续……</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

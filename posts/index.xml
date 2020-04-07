@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 第253页图灵笔记</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on 第253页图灵笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Apr 2020 13:34:30 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacs高手修炼手册</title>
+      <link>http://example.org/posts/using-emacs-like-a-pro/</link>
+      <pubDate>Tue, 07 Apr 2020 13:34:30 +0800</pubDate>
+      
+      <guid>http://example.org/posts/using-emacs-like-a-pro/</guid>
+      <description>视频讲解版本
+Emacs 初体验 0 教程简介  带领认识 Emacs 这款传说中的编辑器 每节课五分钟左右，没有废话，干货 每节课一个技巧或知识点，轻松学习 对笔者也是个学习的过程，共同进步 新手视角，向老鸟学习，向高手迈进  1 Emacs 简介  讲解的版本是 GNU Emacs GNU Emacs 于 1984 年，Richard Stallman 发起并维护 GNU 顶级项目 竞争对手 VIM，VSCode 等 跨平台，内核解释器 C 写成，通过 ELisp 语言进行扩展  2 Emacs 安装 2.</description>
+    </item>
+    
+  </channel>
+</rss>
