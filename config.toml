@@ -1,0 +1,8 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "第253页图灵笔记"
+theme = "hyde"
+summaryLength = 15
+
+[params]
+  description = "测试开发工程师的日常/Emacs高手修炼手册"
