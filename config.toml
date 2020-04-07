@@ -6,3 +6,17 @@ summaryLength = 30
 
 [params]
   description = "测试开发工程师的日常/Emacs高手修炼手册"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章列表"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "关于我"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/about/"
+    weight = 10
