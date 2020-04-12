@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>#17 国内解决不能下载Golang包的问题 &middot; 第253页图灵笔记</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div>
+      <img src="/avatar-circle.png" alt="Avatar" />
+    </div>
+    <div class="sidebar-about">
+      <a href="https://cabins.github.io/"><p class="lead">@第253页图灵笔记</p></a>
+      <p>
+         测试开发工程师的日常/Emacs高手修炼手册 
+      </p>
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cabins.github.io/">首页</a></li>
+        <li><a href="/emacs/"> Emacs高手修炼手册 </a></li><li><a href="/testdev/"> 测试开发工程师的日常 </a></li><li><a href="/about/about-me/"> 关于我 </a></li>
+      </ul>
+    </nav>
+
+    <hr />
+    <p>
+      &copy; 2020，版权保留。 
+    </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>#17 国内解决不能下载Golang包的问题</h1>
+  <time datetime=2020-04-12T14:31:29&#43;0800 class="post-date">Sun, Apr 12, 2020</time>
+  <blockquote>
+<p><a href="https://space.bilibili.com/210738994">B 站《测试开发工程师的日常》配套讲稿</a></p>
+</blockquote>
+<h2 id="推荐使用go-module">推荐使用Go Module</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export GO111MODULE<span style="color:#f92672">=</span>on
+</code></pre></div><p>推荐写入到环境变量中。如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;export GO111MODULE=on&#39;</span> &gt;&gt; ~/.bashrc
+</code></pre></div><h2 id="使用阿里云代理">使用阿里云代理</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export GOPROXY<span style="color:#f92672">=</span>https://mirrors.aliyun.com/goproxy/
+</code></pre></div><p>推荐写入到环境变量中。</p>
+<h2 id="使用-goproxycn">使用 goproxy.cn</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export GOPROXY<span style="color:#f92672">=</span>https://goproxy.cn
+</code></pre></div><p>推荐写入到环境变量中。</p>
+<h2 id="补充goland中设置goproxy的方法">补充：GoLand中设置GOPROXY的方法</h2>
+<p>演示。</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

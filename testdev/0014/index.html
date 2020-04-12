@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>#14 提升效率的一些软件和配置 &middot; 第253页图灵笔记</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cabins.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div>
+      <img src="/avatar-circle.png" alt="Avatar" />
+    </div>
+    <div class="sidebar-about">
+      <a href="https://cabins.github.io/"><p class="lead">@第253页图灵笔记</p></a>
+      <p>
+         测试开发工程师的日常/Emacs高手修炼手册 
+      </p>
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cabins.github.io/">首页</a></li>
+        <li><a href="/emacs/"> Emacs高手修炼手册 </a></li><li><a href="/testdev/"> 测试开发工程师的日常 </a></li><li><a href="/about/about-me/"> 关于我 </a></li>
+      </ul>
+    </nav>
+
+    <hr />
+    <p>
+      &copy; 2020，版权保留。 
+    </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>#14 提升效率的一些软件和配置</h1>
+  <time datetime=2020-04-12T14:31:26&#43;0800 class="post-date">Sun, Apr 12, 2020</time>
+  <blockquote>
+<p><a href="https://space.bilibili.com/210738994">B 站《测试开发工程师的日常》配套讲稿</a></p>
+</blockquote>
+<h2 id="无处不在的搜索">无处不在的搜索</h2>
+<p>对于测试开发工程师来说：
+- 合理，并善用搜索，绝对能非常高的提高效率
+- 文件，应用，设置项太多，记忆不是我们的长处，也不是我们该做的事情
+- 快速的找到所需的文件，应用，配置，是追求效率的一种体现</p>
+<p>推荐软件：</p>
+<ul>
+<li>macOS
+<ul>
+<li>SpotLight</li>
+<li>Alfred</li>
+</ul>
+</li>
+<li>Windows
+<ul>
+<li>Listary+Everything</li>
+<li>Wox+Everything</li>
+</ul>
+</li>
+<li>Linux
+<ul>
+<li>Alt+F2</li>
+<li>Find / Grep / Locate</li>
+<li>补充：Albert</li>
+</ul>
+</li>
+<li>跨平台
+<ul>
+<li>utools（Linux仅提供deb包）</li>
+<li>Cerebro</li>
+</ul>
+</li>
+</ul>
+<h2 id="包管理器的使用">包管理器的使用</h2>
+<p>对于测试开发工程师来说，包管理器是快速搭建开发环境的一个技巧，也是安装管理应用最便捷的手段。</p>
+<p>推荐软件：</p>
+<ul>
+<li>Linux，不同的分发版自带不同的包管理器
+<ul>
+<li>Ubuntu/Debian, apt</li>
+<li>Fedora/CentOS/RHEL, yum/dnf</li>
+<li>ArchLinux, pacman</li>
+<li>Solus, eopkg</li>
+</ul>
+</li>
+<li>macOS
+<ul>
+<li>Homebrew</li>
+</ul>
+</li>
+<li>Windows
+<ul>
+<li>Chocolatey</li>
+<li>Scoop（强烈推荐）</li>
+<li>Powershell带的包管理器</li>
+</ul>
+</li>
+</ul>
+<h2 id="windows上补全linux命令">Windows上补全Linux命令</h2>
+<p>对于测试开发工程师来说，弥补Linux命令到其他的平台上，是跨平台高效开发的一种保障。</p>
+<p>对于Windows来说，可以用两种方式来补全：
+- 使用Windows Subsystem Linux（WSL），缺点：只适用于Windows 10
+- 使用msys2，Cygwin等方式（建议使用msys2）</p>
+<blockquote>
+<p>补充</p>
+</blockquote>
+<h2 id="全局搜索工具补充">全局搜索工具补充</h2>
+<p>针对Linux：</p>
+<ul>
+<li>补充：Albert</li>
+</ul>
+<p>针对跨平台：</p>
+<ul>
+<li>补充utools
+<ul>
+<li>Windows上试用，体验不错，插件相当的丰富！</li>
+<li>Linux仅提供deb包，其他的分发版不支持</li>
+</ul>
+</li>
+<li>补充Cerebro
+<ul>
+<li>有部分人反映不能正常使用，比如在Win10上就不能正常使用</li>
+<li>知道就好，不推荐使用</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

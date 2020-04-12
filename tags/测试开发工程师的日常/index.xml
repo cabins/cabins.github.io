@@ -6,10 +6,136 @@
     <description>Recent content in 测试开发工程师的日常 on 第253页图灵笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Apr 2020 16:52:01 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2020 14:31:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cabins.github.io/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#18 回归理论学习的重要性</title>
+      <link>https://cabins.github.io/testdev/0018/</link>
+      <pubDate>Sun, 12 Apr 2020 14:31:30 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0018/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#17 国内解决不能下载Golang包的问题</title>
+      <link>https://cabins.github.io/testdev/0017/</link>
+      <pubDate>Sun, 12 Apr 2020 14:31:29 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0017/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#16 国内加速Python的PIP安装速度</title>
+      <link>https://cabins.github.io/testdev/0016/</link>
+      <pubDate>Sun, 12 Apr 2020 14:31:28 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0016/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#15 合理利用阿里云等开源镜像站点</title>
+      <link>https://cabins.github.io/testdev/0015/</link>
+      <pubDate>Sun, 12 Apr 2020 14:31:27 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0015/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#14 提升效率的一些软件和配置</title>
+      <link>https://cabins.github.io/testdev/0014/</link>
+      <pubDate>Sun, 12 Apr 2020 14:31:26 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0014/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#13 编程语言学习建议</title>
+      <link>https://cabins.github.io/testdev/0013/</link>
+      <pubDate>Sun, 12 Apr 2020 14:30:25 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0013/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#12 建议什么样的测试开发学习Java</title>
+      <link>https://cabins.github.io/testdev/0012/</link>
+      <pubDate>Sun, 12 Apr 2020 14:30:23 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0012/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#11 操作系统学习建议</title>
+      <link>https://cabins.github.io/testdev/0011/</link>
+      <pubDate>Sun, 12 Apr 2020 14:30:20 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0011/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#10 为什么建议学习Git</title>
+      <link>https://cabins.github.io/testdev/0010/</link>
+      <pubDate>Sun, 12 Apr 2020 14:25:21 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0010/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#9 为什么建议学习Linux操作系统</title>
+      <link>https://cabins.github.io/testdev/0009/</link>
+      <pubDate>Sun, 12 Apr 2020 14:25:20 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0009/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#8 为什么建议学习Go语言</title>
+      <link>https://cabins.github.io/testdev/0008/</link>
+      <pubDate>Sun, 12 Apr 2020 14:25:19 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0008/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#7 说说Python2的退休</title>
+      <link>https://cabins.github.io/testdev/0007/</link>
+      <pubDate>Sun, 12 Apr 2020 14:25:18 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0007/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#6 为什么建议学习Python</title>
+      <link>https://cabins.github.io/testdev/0006/</link>
+      <pubDate>Sun, 12 Apr 2020 14:24:22 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0006/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
+    
+    <item>
+      <title>#5 为什么测试开发不要脱离业务</title>
+      <link>https://cabins.github.io/testdev/0005/</link>
+      <pubDate>Sun, 12 Apr 2020 14:22:40 +0800</pubDate>
+      
+      <guid>https://cabins.github.io/testdev/0005/</guid>
+      <description>B 站《测试开发工程师的日常》配套讲稿</description>
+    </item>
     
     <item>
       <title>#4 测试开发与开发测试的区别</title>
