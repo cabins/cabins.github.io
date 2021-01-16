@@ -141,11 +141,14 @@ brew cask info emacs
 <li>M-v，向上翻一屏</li>
 </ul>
 <h2 id="6-自带文档">6 自带文档</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h <span style="color:#66d9ef">t</span> <span style="color:#75715e">;速记 Help Tutorial</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h <span style="color:#66d9ef">t</span> <span style="color:#75715e">;速记 Help Tutorial
+</span>
 </code></pre></div><p>查看快捷键的含义：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h k <span style="color:#75715e">;速记 Help Keybind</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h k <span style="color:#75715e">;速记 Help Keybind
+</span>
 </code></pre></div><p>查看函数的定义以及快捷键绑定：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h f <span style="color:#75715e">;速记 Help Function</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-h f <span style="color:#75715e">;速记 Help Function
+</span>
 </code></pre></div><h2 id="7-对外观做点改变">7 对外观做点改变</h2>
 <p>图形化配置
 <code>M-x customize</code></p>
@@ -243,14 +246,17 @@ brew cask info emacs
     (<span style="color:#e6db74">&#34;org&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://mirrors.tuna.tsinghua.edu.cn/elpa/org/&#34;</span>)))
 </code></pre></div><h2 id="13-安装第一个-emacs-扩展">13 安装第一个 emacs 扩展</h2>
 <p>安装扩展前，需要先刷新软件源的索引。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> package-check-signature <span style="color:#66d9ef">nil</span>) <span style="color:#75715e">;个别时候会出现签名校验失败</span>
-(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;package</span>) <span style="color:#75715e">;; 初始化包管理器</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> package-check-signature <span style="color:#66d9ef">nil</span>) <span style="color:#75715e">;个别时候会出现签名校验失败
+</span>
+(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;package</span>) <span style="color:#75715e">;; 初始化包管理器
+</span>
 (unless (bound-and-true-p package--initialized)
-   (package-initialize)) <span style="color:#75715e">;; 刷新软件源索引</span>
+   (package-initialize)) <span style="color:#75715e">;; 刷新软件源索引
+</span>
 (unless package-archive-contents
     (package-refresh-contents))
 
-unless (package-installed-p <span style="color:#e6db74">&#39;use-package</span>)
+(unless (package-installed-p <span style="color:#e6db74">&#39;use-package</span>)
    (package-refresh-contents)
    (package-install <span style="color:#e6db74">&#39;use-package</span>))
 </code></pre></div><h2 id="14-使用-use-package-管理扩展">14 使用 use-package 管理扩展</h2>
@@ -269,21 +275,31 @@ unless (package-installed-p <span style="color:#e6db74">&#39;use-package</span>)
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 最简洁的格式</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 最简洁的格式
+</span>
  (<span style="color:#a6e22e">use-package</span> restart-emacs)
 
-<span style="color:#75715e">;; 常用的格式</span>
+<span style="color:#75715e">;; 常用的格式
+</span>
  (<span style="color:#a6e22e">use-package</span> smooth-scrolling
-    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span> <span style="color:#75715e">;是否一定要确保已安装</span>
-    <span style="color:#e6db74">:defer</span> <span style="color:#66d9ef">nil</span> <span style="color:#75715e">;是否要延迟加载</span>
-    <span style="color:#e6db74">:init</span> (<span style="color:#66d9ef">setq</span> smooth-scrolling-margin <span style="color:#ae81ff">2</span>) <span style="color:#75715e">;初始化参数</span>
-    <span style="color:#e6db74">:config</span> (smooth-scrolling-mode <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;基本配置参数</span>
-    <span style="color:#e6db74">:bind</span> <span style="color:#75715e">;快捷键的绑定</span>
-    <span style="color:#e6db74">:hook</span>) <span style="color:#75715e">;hook模式的绑定</span>
+    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span> <span style="color:#75715e">;是否一定要确保已安装
+</span>
+    <span style="color:#e6db74">:defer</span> <span style="color:#66d9ef">nil</span> <span style="color:#75715e">;是否要延迟加载
+</span>
+    <span style="color:#e6db74">:init</span> (<span style="color:#66d9ef">setq</span> smooth-scrolling-margin <span style="color:#ae81ff">2</span>) <span style="color:#75715e">;初始化参数
+</span>
+    <span style="color:#e6db74">:config</span> (smooth-scrolling-mode <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;基本配置参数
+</span>
+    <span style="color:#e6db74">:bind</span> <span style="color:#75715e">;快捷键的绑定
+</span>
+    <span style="color:#e6db74">:hook</span>) <span style="color:#75715e">;hook模式的绑定
+</span>
 </code></pre></div><p>建议添加的配置（部分来自 use-package 官方建议）：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(eval-and-compile
-    (<span style="color:#66d9ef">setq</span> use-package-always-ensure <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;不用每个包都手动添加:ensure t关键字</span>
-    (<span style="color:#66d9ef">setq</span> use-package-always-defer <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;默认都是延迟加载，不用每个包都手动添加:defer t</span>
+    (<span style="color:#66d9ef">setq</span> use-package-always-ensure <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;不用每个包都手动添加:ensure t关键字
+</span>
+    (<span style="color:#66d9ef">setq</span> use-package-always-defer <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;默认都是延迟加载，不用每个包都手动添加:defer t
+</span>
     (<span style="color:#66d9ef">setq</span> use-package-always-demand <span style="color:#66d9ef">nil</span>)
     (<span style="color:#66d9ef">setq</span> use-package-expand-minimally <span style="color:#66d9ef">t</span>)
     (<span style="color:#66d9ef">setq</span> use-package-verbose <span style="color:#66d9ef">t</span>))
@@ -338,7 +354,8 @@ unless (package-installed-p <span style="color:#e6db74">&#39;use-package</span>)
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> emacs
   <span style="color:#e6db74">:if</span> (display-graphic-p)
   <span style="color:#e6db74">:config</span>
-  <span style="color:#75715e">;; Font settings</span>
+  <span style="color:#75715e">;; Font settings
+</span>
   (<span style="color:#66d9ef">if</span> *is-windows*
     (<span style="color:#66d9ef">progn</span>
       (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">:font</span> <span style="color:#e6db74">&#34;Microsoft Yahei Mono 9&#34;</span>)
@@ -426,11 +443,14 @@ unless (package-installed-p <span style="color:#e6db74">&#39;use-package</span>)
          (<span style="color:#e6db74">&#34;&lt;M-down&gt;&#34;</span> <span style="color:#f92672">.</span> drag-stuff-down)))
 </code></pre></div><h2 id="30-文本编辑之原生搜索替换">30 文本编辑之原生搜索/替换</h2>
 <p>Emacs 原生提供了强大的搜索和替换功能。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 当前位置到文档结尾的搜索</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 当前位置到文档结尾的搜索
+</span>
 C-s
-<span style="color:#75715e">;; 当前位置到文档开始的搜索</span>
+<span style="color:#75715e">;; 当前位置到文档开始的搜索
+</span>
 C-r
-<span style="color:#75715e">;; 替换</span>
+<span style="color:#75715e">;; 替换
+</span>
 M-%
 </code></pre></div><p>替换时按下<code>y</code>确认替换，<code>n</code>跳过本处的替换，<code>!</code>全部替换。</p>
 <h2 id="31-文本编辑之强化搜索">31 文本编辑之强化搜索</h2>
@@ -500,10 +520,12 @@ M-%
 <h2 id="36-文本编辑之字数统计">36 文本编辑之字数统计</h2>
 <p>整个 Buffer 统计</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">M-=
-<span style="color:#75715e">;; 或者</span>
+<span style="color:#75715e">;; 或者
+</span>
 M-x count-words-region
 </code></pre></div><p>选中区域统计</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 先选中</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; 先选中
+</span>
 M-x count-words
 </code></pre></div><h1 id="emacs-常用插件">Emacs 常用插件</h1>
 <h2 id="37-crux-优化-emacs-常用操作">37 crux 优化 Emacs 常用操作</h2>
@@ -533,12 +555,18 @@ M-x count-words
 </code></pre></div><p>杀死当前 Buffer</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x k
 </code></pre></div><p>批量管理 Buffer</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x C-b <span style="color:#75715e">;; 进入Buffer列表</span>
-d <span style="color:#75715e">;; 标记删除</span>
-u <span style="color:#75715e">;; 取消当前行标记</span>
-U <span style="color:#75715e">;; 取消全部标记</span>
-x <span style="color:#75715e">;; 执行操作</span>
-? <span style="color:#75715e">;; 查看按键帮助</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x C-b <span style="color:#75715e">;; 进入Buffer列表
+</span>
+d <span style="color:#75715e">;; 标记删除
+</span>
+u <span style="color:#75715e">;; 取消当前行标记
+</span>
+U <span style="color:#75715e">;; 取消全部标记
+</span>
+x <span style="color:#75715e">;; 执行操作
+</span>
+? <span style="color:#75715e">;; 查看按键帮助
+</span>
 </code></pre></div><h2 id="40-窗口管理之-minibuffer-交互优化">40 窗口管理之 MiniBuffer 交互优化</h2>
 <p>显示在左下角的 MiniBuffer 移动视线范围大，移动到中央位置，更合适一些。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ivy-posframe
@@ -573,10 +601,14 @@ x <span style="color:#75715e">;; 执行操作</span>
     <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;M-o&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;ace-window</span>)))
 </code></pre></div><p><img src="/imgs/ace-window-extras.png" alt="image.png"></p>
 <h2 id="44-窗口管理之-tab-标签页管理">44 窗口管理之 Tab 标签页管理</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x <span style="color:#66d9ef">t</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">;; 新建Tab</span>
-      <span style="color:#ae81ff">1</span> <span style="color:#75715e">;; 关闭其它Tab</span>
-      <span style="color:#ae81ff">0</span> <span style="color:#75715e">;; 关闭当前Tab</span>
-      b <span style="color:#75715e">;; 在新Tab中打开Buffer</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">C-x <span style="color:#66d9ef">t</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">;; 新建Tab
+</span>
+      <span style="color:#ae81ff">1</span> <span style="color:#75715e">;; 关闭其它Tab
+</span>
+      <span style="color:#ae81ff">0</span> <span style="color:#75715e">;; 关闭当前Tab
+</span>
+      b <span style="color:#75715e">;; 在新Tab中打开Buffer
+</span>
 </code></pre></div><p>未完待续……</p>
 
 </div>
